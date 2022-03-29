@@ -1,0 +1,56 @@
+class Node{
+    public:
+    int ammount;
+    string sender;
+    string receiver;
+    double id;
+    string timestamp;
+    string hash;
+    Node *next;
+    
+    Node()//default constructor
+    {
+        ammount=0;
+        sender="Owner";
+        receiver="Fixed by Owner";
+        timestamp="NULL";
+        id=rand() % 100;//Unique id for each block 
+        next=NULL;
+    }
+
+    Node(int n,string s, string r, string time )//constructor
+    {
+        ammount=n;
+        sender=s;
+        receiver =r;
+     //   int t = stoi(time);
+        timestamp=time;
+        id=rand() % 100;//Unique id for each block 
+        next=NULL;
+    }
+};
+
+
+class Blockchain : public Node
+{   
+    private:
+    Node *listptr,*temp;
+    //ptr is used to point at the current node and temp is used for temporary usages such as iterations , ammount storage for a small time.
+    public: 
+    Blockchain()//
+    {
+        listptr=NULL;
+        temp=NULL;
+        //initializing the values to NULL , to avoid segmentation error
+    }
+    void Create(int , string, string);
+    void Display();
+    void HashDisplay();
+    int Isempty();
+    int len();
+    void Insert();
+    void Search();
+    void ProofofWork();
+    void Mining();
+    void Correctblock(Blockchain, Blockchain);
+}lk1,lk2 ;
